@@ -17,11 +17,6 @@ interface Transacao {
 export class ExtratoComponent implements OnInit {
 
   clienteId!: number; 
-  transacoes: Transacao[] = [
-    { tipo: 'Débito', valor: 100, descricao: 'Compra de mercado', clienteId: 1 },
-    { tipo: 'Crédito', valor: 150, descricao: 'Depósito', clienteId: 1 },
-    { tipo: 'Débito', valor: 50, descricao: 'Compra de roupa', clienteId: 2 },
-  ];
 
   transacoesFiltradas: Transacao[] = [];
   saldo: number = 0;  

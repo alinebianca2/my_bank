@@ -16,7 +16,17 @@
 
   <mat-form-field appearance="fill">
     <mat-label>Valor</mat-label>
-    <input matInput formControlName="valor" placeholder="Digite o valor da transação" mask="separator.2" thousandSeparator="." decimalMarker="," />
+
+    <input
+    matInput
+    formControlName="valor"
+    id="valor"
+    placeholder="Digite o valor"
+    mask="separator.2"
+    thousandSeparator="."
+    decimalMarker=","
+    required
+  />
 
     <mat-error *ngIf="transacaoForm.get('valor')?.hasError('required')">
       Este campo é obrigatório
