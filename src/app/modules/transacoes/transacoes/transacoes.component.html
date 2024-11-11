@@ -1,0 +1,48 @@
+<form [formGroup]="transacaoForm" (ngSubmit)="onSubmit()">
+  <div class="cliente-info">
+    <h2>Bem-vindo, {{ clientName }}!</h2>
+    <p>Saldo total: {{ this.saldoTotal | currency : "BRL" }}</p>
+  </div>
+  <mat-form-field appearance="fill">
+    <mat-label>Tipo</mat-label>
+    <mat-select formControlName="tipo" required>
+      <mat-option value="credito">Crédito</mat-option>
+      <mat-option value="debito">Débito</mat-option>
+    </mat-select>
+    <mat-error *ngIf="transacaoForm.get('tipo')?.hasError('required')">
+      Este campo é obrigatório
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Valor</mat-label>
+    <input matInput formControlName="valor" placeholder="Digite o valor da transação" mask="separator.2" thousandSeparator="." decimalMarker="," />
+
+    <mat-error *ngIf="transacaoForm.get('valor')?.hasError('required')">
+      Este campo é obrigatório
+    </mat-error>
+    <mat-error *ngIf="transacaoForm.get('valor')?.hasError('min')">
+      O valor deve ser maior que zero
+    </mat-error>
+    <mat-error *ngIf="transacaoForm.get('valor')?.hasError('pattern')">
+      Valor inválido. Somente números são permitidos.
+    </mat-error>
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="!transacaoForm.valid"
+  >
+    Cadastrar Transação
+  </button>
+</form>
+
+<div *ngIf="transacaoCadastrada" class="confirmacao-container">
+  <p class="confirmacao-mensagem">Transação cadastrada com sucesso!</p>
+  <p class="confirmacao-pergunta">Deseja visualizar o extrato detalhado?</p>
+  <button mat-raised-button color="accent" (click)="verExtrato()">
+    Sim, ver extrato
+  </button>
+</div>

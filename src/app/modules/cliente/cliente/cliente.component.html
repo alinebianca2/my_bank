@@ -1,0 +1,44 @@
+<form [formGroup]="clienteForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="nome" />
+    <mat-error *ngIf="(clienteForm.controls['nome']?.touched || formularioEnviado) && clienteForm.controls['nome']?.hasError('required')">Nome é obrigatório</mat-error>
+    <mat-error *ngIf="(clienteForm.controls['nome']?.touched || formularioEnviado) && clienteForm.controls['nome']?.hasError('minlength')">Nome deve ter pelo menos 3 caracteres</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Idade</mat-label>
+    <input matInput formControlName="idade" type="number" />
+    <mat-error *ngIf="(clienteForm.controls['idade']?.touched || formularioEnviado) && clienteForm.controls['idade']?.hasError('required')">Idade é obrigatória</mat-error>
+    <mat-error *ngIf="(clienteForm.controls['idade']?.touched || formularioEnviado) && clienteForm.controls['idade']?.hasError('min')">Idade deve ser maior ou igual a 18</mat-error>
+    <mat-error *ngIf="(clienteForm.controls['idade']?.touched || formularioEnviado) && clienteForm.controls['idade']?.hasError('max')">Idade deve ser menor ou igual a 120</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+    <mat-error *ngIf="(clienteForm.controls['email']?.touched || formularioEnviado) && clienteForm.controls['email']?.hasError('required')">Email é obrigatório</mat-error>
+    <mat-error *ngIf="(clienteForm.controls['email']?.touched || formularioEnviado) && clienteForm.controls['email']?.hasError('email')">Informe um email válido</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Número da Conta</mat-label>
+    <input matInput formControlName="numeroConta" />
+    <mat-error *ngIf="(clienteForm.controls['numeroConta']?.touched || formularioEnviado) && clienteForm.controls['numeroConta']?.hasError('required')">Número da conta é obrigatório</mat-error>
+    <mat-error *ngIf="(clienteForm.controls['numeroConta']?.touched || formularioEnviado) && clienteForm.controls['numeroConta']?.hasError('pattern')">Número da conta deve ter entre 10 e 12 dígitos</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!clienteForm.valid || formularioEnviado">
+    Cadastrar Cliente
+  </button>
+
+  <div *ngIf="clienteCadastrado" class="confirmacao-container">
+    <p class="confirmacao-mensagem">Cliente cadastrado com sucesso!</p>
+    <p class="confirmacao-pergunta">
+      Deseja cadastrar transações para este cliente?
+    </p>
+    <button mat-raised-button color="accent" (click)="irParaTransacoes()">
+      Sim, cadastrar transações
+    </button>
+  </div>
+</form>

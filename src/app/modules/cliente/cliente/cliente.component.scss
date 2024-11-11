@@ -1,0 +1,114 @@
+form {
+  width: 100%;  
+  max-width: 600px; 
+  margin: 40px auto;  
+  background-color: #fff; 
+  padding: 30px 40px;  
+  border-radius: 10px;  
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
+  display: flex;
+  flex-direction: column;  
+  gap: 30px;  
+  height: auto;  
+}
+
+mat-form-field {
+  width: 100%; 
+  .mat-form-field-label {
+      font-weight: 600; 
+      color: #333;  
+  }
+
+  .mat-form-field-infix {
+      border-radius: 8px;  
+      border: 1px solid #ccc; 
+      background-color: #fafafa;  
+      transition: all 0.3s ease; 
+  }
+
+  .mat-form-field.mat-focused .mat-form-field-infix {
+      border-color: #3f51b5;  
+      background-color: #fff;  
+      box-shadow: 0 0 10px rgba(63, 81, 181, 0.3);  
+  }
+
+  .mat-error {
+      font-size: 12px; 
+      color: #f44336;
+  }
+}
+
+.confirmacao-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #f3f4f6; 
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.confirmacao-mensagem {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #4caf50; 
+  margin-bottom: 8px;
+}
+
+.confirmacao-pergunta {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.87); 
+  margin-bottom: 20px;
+}
+
+button {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 24px;
+  border-radius: 6px;
+  width: 100%; /* Faz o botão ocupar toda a largura */
+  transition: background-color 0.3s ease;
+  background-color: #3f51b5;
+  color: white;
+  
+  &:hover {
+    background-color: #303f9f; /* Cor mais escura no hover */
+  }
+}
+
+
+
+  @media screen and (max-width: 768px) {
+    form {
+      padding: 15px; 
+    }
+  }
+  
+button {
+  background-color: #3f51b5;  
+  color: white; 
+  font-size: 16px;  
+  font-weight: bold;  
+  padding: 12px 20px;  
+  border-radius: 8px;
+  border: none; 
+  cursor: pointer;  
+  transition: background-color 0.3s ease;  
+}
+
+
+button:hover {
+  background-color: #303f9f;  
+}
+
+h2 {
+  text-align: center;  
+  color: #333; 
+  font-size: 24px; 
+  font-weight: bold;  
+}

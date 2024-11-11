@@ -1,0 +1,53 @@
+$primary-color: #3f51b5;  // Cor principal (igual ao foco do input, mas pode ser personalizada)
+$background-color: #ffffff;  // Cor de fundo para header e footer
+$shadow-color: rgba(0, 0, 0, 0.1);  // Cor da sombra no estilo Material Design
+
+/* Estilos para o header e footer */
+header {
+  background-color: $primary-color;  // Usando a cor principal
+  color: white;  // Cor do texto
+  padding: 16px 24px;  // Padding consistente, pode ajustar conforme necessário
+  box-shadow: 0 2px 4px $shadow-color;  // Sombra sutil para dar a sensação de profundidade
+  display: flex;
+  justify-content: space-between;  // Distribui os itens no header/footer
+  align-items: center;  // Alinha os itens verticalmente ao centro
+}
+
+/* Para tornar a navegação (no header) mais consistente com o Material */
+nav {
+  display: flex;
+  gap: 20px;  // Espaçamento entre os links
+}
+
+nav a {
+  text-decoration: none;  // Remove sublinhado
+  color: white;  // Cor do texto do link
+  font-weight: 500;  // Peso de fonte um pouco mais forte
+  transition: color 0.3s ease-in-out;  // Transição para efeitos de hover
+}
+
+nav a:hover {
+  color: #ff4081;  // Cor do link ao passar o mouse (usando cor de destaque do Material)
+}
+
+/* Adiciona responsividade */
+@media screen and (max-width: 768px) {
+  header, footer {
+    padding: 12px 16px;  // Ajusta o padding para telas menores
+  }
+
+  nav {
+    flex-direction: column;  // Em telas pequenas, os links ficam empilhados
+    gap: 10px;
+  }
+}
+
+/* Estilo para os inputs com foco */
+mat-form-field.mat-focused {
+  border-color: $primary-color !important;  // Cor de borda quando o input está em foco
+}
+
+mat-form-field input:focus {
+  outline: none;  // Remove o outline padrão
+  box-shadow: 0 0 4px $primary-color;  // Aplica a cor do foco no box-shadow
+}

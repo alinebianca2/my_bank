@@ -1,0 +1,13 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css"; 
+
+.content {
+    padding: 20px;
+    min-height: calc(100vh - 110px); /* A altura mínima da área de conteúdo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Alinha os itens ao centro verticalmente */
+    align-items: center; /* Alinha os itens ao centro horizontalmente */
+    background-color: #f4f4f4; /* Fundo para a área de conteúdo */
+  }
+  
+ 

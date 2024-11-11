@@ -1,0 +1,36 @@
+<div class="extrato-container">
+  <mat-card class="header-card">
+    <mat-card-header>
+      <mat-card-title>Extrato de Transações - {{clientName}}</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+
+  <mat-card class="transacoes-card">
+    <mat-card-header>
+      <mat-card-title>Detalhes das Transações</mat-card-title>
+    </mat-card-header>
+    
+    <div class="tabela-container">
+      <table mat-table [dataSource]="transacoesFiltradas" class="mat-elevation-z8">
+        <ng-container matColumnDef="tipo">
+          <th mat-header-cell *matHeaderCellDef> Tipo </th>
+          <td mat-cell *matCellDef="let transacao"> {{ transacao.tipo }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="valor">
+          <th mat-header-cell *matHeaderCellDef> Valor </th>
+          <td mat-cell *matCellDef="let transacao"> {{ transacao.valor | currency: 'BRL' }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="descricao">
+          <th mat-header-cell *matHeaderCellDef> Descrição </th>
+          <td mat-cell *matCellDef="let transacao"> {{ transacao.data | date:'dd/MM/yyyy HH:mm:ss' }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </mat-card>
+</div>
+
